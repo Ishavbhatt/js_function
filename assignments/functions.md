@@ -4,9 +4,17 @@
   * [ ] Outputs the result to the screen like so: "Your doggie is NN years old in dog years!"
   * [ ] Add an additional argument to the function that takes the conversion rate of human to dog years.
 
-```js
 // your code goes here
-```
+```js
+function calculateDogAge (age) {
+  var dogYears = 7*age;
+  console.log("Your doggie is " + dogYears + " years old in dog years!");
+}
+calculateDogAge(1);
+calculateDogAge(6);
+calculateDogAge(12);
+
+````
 2. 🎖Write a function named calculateSupply that:
   * [ ] takes 2 arguments: age, amount per day.
   * [ ] calculates the amount consumed for rest of the life (based on a constant max age).
@@ -15,6 +23,16 @@
 
 ```js
 // your code goes here
+function calculateSupply(age, numPerDay) {
+  var maxAge = 100;
+  var totalNeeded = (numPerDay * 365) * (maxAge - age);
+  var message = 'You will need ' + totalNeeded + ' cups of tea to last you until the ripe old age of ' + maxAge;
+  console.log(message);
+}
+
+calculateSupply(28, 36);
+calculateSupply(28, 2.5);
+calculateSupply(28, 400);
 ```
 3. 🎖Create a function called celsiusToFahrenheit:
   * [ ] Store a celsius temperature into a variable.
@@ -25,6 +43,14 @@
 
 ```js
 // your code goes here
+function celsiusToFahrenheit(celsius) {
+  var celsiusInF = (celsius*9)/5 + 32;
+  console.log(celsius + '°C is ' + celsiusInF + '°F');
+}
+function fahrenheitToCelsius(fahrenheit) {
+  var fahrenheitInC = ((fahrenheit - 32)*5)/9;
+  console.log(fahrenheit + '°F is ' + fahrenheitInC + '°C');
+}
 ```
 4. 🎖The function below returns true if the parameter age is greater than 18. Otherwise it asks for a confirmation and returns its result:
 
@@ -41,11 +67,18 @@ function checkAge(age) {
   4.1 🎖Convert the above function using ternary operator.
   ```js
   // your code goes here
+  function checkAge(age) {
+    return (age  > 18) ? true : confirm("Did parents allow you");
+  }
   ```
 
   4.2 🎖Convert the above function using `||` operator.
   ```js
   // your code goes here
+  // your code goes here
+  function checkAge(age) {
+    return (age  > 18) || confirm("Did parents allow you");
+  }
   ```
 Will the function work differently if else is removed like below?
 
@@ -74,21 +107,73 @@ Is there any difference in the behavior of these two variants? If there is what 
 // pow(3, 3); // 27
 // pow(1, 100); // 1
 // pow(-31, 2); // "The number below 1 is not allowed"
+function pow(x,n) {
+  var result=x;
+  for ( i = 1; i < n; i++) {
+    return=return*x;
+  }
+  return result;
+}
+var x =+prompt("enter number")
+var n =+prompt("enter number")
+if (n<1) {
+  alert("use positive  n");
+} else {
+  alert(pow (x,n));
+}
 
 6. 🎖Write a program that asks the user for a number n and gives them the possibility to choose between computing the sum and computing the product of 1,…,n. Return the result accordingly.
 
 ```js
 // your code goes here
+var mul=1;
+function add(num,operator) {
+ if(operator=="+") {
+  var sum=0;
+  for(i=1 ;i<=num; i++) {
+    sum=sum+i;
+  }
+  console.log(sum);
+}
+
+else if(operator=="*") {
+  for(i=2 ; i<=num; i++) {
+    mul=mul*i;
+  }
+  console.log(mul);
+}
+}
+ }
+
 ```
 6. 🎖Write a program that asks the user for a number n using prompt and prints the sum of the numbers 1 to n
 
 ```js
 // your code goes here
+
+var num=+prompt("enter number");
+ function print(num) {
+   var sum=0;
+   for(i=1; i<=num; i++) {
+    sum=sum+i;
+   }
+   console.log(sum);
+ }
 ```
 7. 🎖Modify the previous program such that only multiples of 5 or 7 are considered in the sum, e.g. n = 20 (5,7,10,14,15,20) 71
 
 ```js
 // your code goes here
+function print(num) {
+  var sum=0;
+  for(i=1; i<=num; i++) {
+    if (i%5===0 || i%7===0) {
+      sum=sum+i;
+    }
+  }
+    console.log(num)
+  
+}
 ```
 
 8. 🎖Write a function `min` that takes two arguments and returns their minimum.
@@ -96,8 +181,14 @@ Is there any difference in the behavior of these two variants? If there is what 
 ```js
 // Your code here.
 
+function min(num1, num2) {
+   if (num1<num2)
+    return num1;
+  else
+    return num2;
+}
+
 console.log(min(0, 10));
 // → 0
 console.log(min(0, -10));
 // → -10
-```
